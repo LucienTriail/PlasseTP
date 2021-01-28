@@ -4,8 +4,7 @@
         <title>1er pas</title>
     </head>
     <body>
-        <h1>Lien vers les sessions</h1>
-        <a href="sessionsV.php"></a> 
+        <h1>Lien vers les <a href="sessions.php">sessions</a></h1> 
     </body>
 </html>
 
