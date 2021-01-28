@@ -1,4 +1,5 @@
 <?php
+//a modifier pour afficher les projets
 if (count($sessions) != 0) {
   ?>
   <p>Il y a <?= count($sessions) ?> sessions</p>

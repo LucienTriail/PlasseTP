@@ -1,5 +1,5 @@
 <?php
-
+//a modifier pour renvoyer la liste des projets
 // Recuperer le parametre idSession 
 // sous forme d'un int
 $idSession = filter_input(INPUT_GET, "idSession",
