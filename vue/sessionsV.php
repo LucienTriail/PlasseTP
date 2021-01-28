@@ -6,7 +6,7 @@
     <body>
         <h1> Fahem </h1>
 
-        <p> Les sessions sont : <?=count ($session[]) ?> </p>
+        <p> Les sessions sont : <?= count($session[]) ?> </p>
 
     </body>
 </html>
