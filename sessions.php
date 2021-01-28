@@ -1,12 +1,7 @@
 <?php
 
-require_once 'modele/SessionDao.php';
-$sessions = SessionDao::getAll();
+require_once "modele/SessionDao";
+$sessions = SessionDao ::getAll();
 
-
-
-
-
-require_once 'Vue/sessionsV.php';
+require_once "vue/sessionsV.php";
 ?>
-
