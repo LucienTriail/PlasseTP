@@ -1,26 +1,29 @@
 <?php
 
-//on recupere l'id_session
-$idSession = filter_input(INPUT_GET, "idSession", FILTER_VALIDATE_INT);
-//initialise les donnéees de la vue, des objets donc null
+// Recuperer le parametre idSession 
+// sous forme d'un int
+$idSession = filter_input(INPUT_GET, "idSession",
+        FILTER_VALIDATE_INT);
+// Initialiser les données de la vue
 $erreur = null;
 $session = null;
-//verifier que cest bon
-if ($idSession == null || $idSession == false) {
-    $erreur = "idSession invalide";
+
+// Verifier que c'est bon
+if ($idSession == null // pas de idSession dans l'url
+    || $idSession == false) { // pas un entier 
+    $erreur = "idSession doit être présent et entier";
 } else {
-//appel du modèle
-    require_once 'modele/SessionDao.php';
-    $session = SessionDao:: getById($idSession);
-    if ($session == null) {
-        $erreur = "Session $idSession introuvable";
-    }
+  // Appellons le modele
+  require_once "modele/SessionDao.php";
+  $session = SessionDao::getById($idSession);
+  if ($session == null) {
+    // Dans une chaine entre ", les variables sont évaluées
+    $erreur = "Session $idSession introuvable";
+  }
 }
 
-
-
-
-
-
-require_once 'Vue/projetsV.php';
+// inclure la vue indexV.php
+require_once "vue/projetsV.php";
 ?>
+
+ 

@@ -1,26 +1,21 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>1er pas</title>
-    </head>
-    <body>
-        <h1>Lucien</h1>
-        <?php
-        if ($erreur == null) {
-            ?>
-            <!-- on accede au nom dans le tableau session -->
-            <p>Session est <?= $session["nom"] ?></p>
-
-            <?php
-        } else {
-            ?>
-            <div class="erreur"><?= $erreur ?></div>
-            <?php
-        }
-        ?>
-
-        <?php
-        ?>
-    </body>
-</html>
+<?php
+if (count($sessions) != 0) {
+  ?>
+  <p>Il y a <?= count($sessions) ?> sessions</p>
+  <ol>
+    <?php
+    foreach ($sessions as $session) {
+      ?>
+    <li><a href="projets.php?idSession=<?= $session["id_session_formation"]?>"><?= $session["nom"] ?></a>
+        (n° <?= $session["id_session_formation"]?>)</li>
+      <?php
+    }
+    ?>
+  </ol>
+  <?php
+} else {
+  ?>
+  <p>Aucune session trouvée</p>
+  <?php
+}
+?>
