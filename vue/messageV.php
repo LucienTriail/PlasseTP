@@ -1,12 +1,16 @@
 <?php
- // affiche une exception avec un message 
 ?>
-<p><?=$message?> </p>
+
+<<p><?=$message?></p>
 <?php
-if (isset ($exc)){
-    ?> 
-<p> <?= $exc?></p>
-<?php
+if(isset($e)){
+     
+?>  
+<<p><?=$e->getMessage()?></p>
+<?php   
 }
-?> 
-}
+?>
+
+
+
+
