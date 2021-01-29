@@ -1,7 +1,13 @@
 <?php
 
 require_once "modele/SessionDao.php";
-$sessions = SessionDao ::getAll();
-
-require_once "vue/sessionsV.php";
+//controleur gère les exceptions, jamais le modele
+try{
+    $sessions = SessionDao ::getAll();
+require_once "vue/sessionsV.php";}
+catch(PDOException $e){
+    $message="Problème technique";
+    require_once 'vue/messageV.php';
+    
+}
 ?>
