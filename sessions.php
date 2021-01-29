@@ -7,6 +7,7 @@ try{
 require_once "vue/sessionsV.php";}
 catch(PDOException $e){
     $message="Problème technique";
+    //$e=null;
     require_once 'vue/messageV.php';
     
 }

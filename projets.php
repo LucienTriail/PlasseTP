@@ -2,7 +2,7 @@
 //a modifier pour renvoyer la liste des projets
 // Recuperer le parametre idSession 
 // sous forme d'un int
-$idSession = filter_input(INPUT_GET, "idSession",
+/*$idSession = filter_input(INPUT_GET, "idSession",
         FILTER_VALIDATE_INT);
 // Initialiser les données de la vue
 $erreur = null;
@@ -20,10 +20,18 @@ if ($idSession == null // pas de idSession dans l'url
     // Dans une chaine entre ", les variables sont évaluées
     $erreur = "Session $idSession introuvable";
   }
+}*/
+require_once "modele/ProjetsDao.php";
+
+try{
+    $projets= ProjetsDao :: getAll();  //ou getProjetsBySession?
+    require_once "vue/projetsV.php";
+}catch(PDOException $e){
+    $message="Problème technique";
+    require_once 'vue/messageV.php';
 }
 
-// inclure la vue indexV.php
-require_once "vue/projetsV.php";
+
 ?>
 
  
