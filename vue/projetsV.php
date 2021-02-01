@@ -16,7 +16,7 @@
                     $url = "projet.php?idProjet=$projet[id_projet]";
                     ?>
 
-                    <li><a href="<?= $url ?>"<?= $projet["titre"] ?></a></li>
+                    <li><a href="<?= $url ?>"><?= $projet["titre"] ?></a></li>
                     <?php
                 }
                 ?>
