@@ -13,9 +13,10 @@
                 <p>Il y a  <?= count($projets) ?> projets:</p>
                 <?php
                 foreach ($projets as $projet) {
+                    $url = "projet.php?idProjet=$projet[id_projet]";
                     ?>
 
-                    <li><a href="projet.php?idProjet=<?= $projet["id_projet"] ?>"<a><?= $projet["titre"] ?></li>
+                    <li><a href="<?= $url ?>"><?= $projet["titre"] ?></a></li>
                     <?php
                 }
                 ?>
@@ -24,8 +25,9 @@
         } else {
             ?>
 
-            <p>Aucune session trouvée</p>
+            <p>Aucun projet trouvé</p>
             <?php
         }
         ?>
-    </body></html>
+    </body>
+</html>
