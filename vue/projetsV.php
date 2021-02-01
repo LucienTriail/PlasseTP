@@ -12,11 +12,10 @@
             <ol>
                 <p>Il y a  <?= count($projets) ?> projets:</p>
                 <?php
-                foreach ($projets as $projets) {
+                foreach ($projets as $projet) {
                     ?>
 
-                    <li><a href="projets.php?id_session_formation=<?= $projets["id_session_formation"] ?>"<a><?= $projets["titre"] ?> , sujet:
-                             <?= $projets["sujet"] ?> </li>
+                    <li><a href="projet.php?idProjet=<?= $projet["id_projet"] ?>"<a><?= $projet["titre"] ?></li>
                     <?php
                 }
                 ?>
