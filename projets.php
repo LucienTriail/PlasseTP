@@ -31,6 +31,14 @@ try{
     require_once 'vue/messageV.php';
 }
 
+try{
+    $projets= ProjetsDao :: afficherProjet();  //ou getProjetsBySession?
+    require_once "vue/projetsV.php";
+}catch(PDOException $e){
+    $message="Problème technique";
+    require_once 'vue/messageV.php';
+}
+
 
 ?>
 

@@ -16,7 +16,7 @@ if (count($sessions) != 0) {
   <?php
 } else {
   ?>
-  <p>Aucune session trouvée</p>
+  <p>Aucun projet trouvé</p>
   <?php
 }
 ?>
