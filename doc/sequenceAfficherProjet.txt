@@ -1,0 +1,11 @@
+@startuml
+participant navigateur
+participant vue
+navigateur->controleur:GETprojet.php?idProjet=1
+controleur->modele:ProjetDao.getById() et ProjetDao.getEquipesByIdProjet()
+modele->sgbd:requete sql
+sgbd->modele:lignes
+modele->controleur:tableau associatif
+controleur->vue:projetV.php
+vue->navigateur:liste des membres de lequipe
+@enduml

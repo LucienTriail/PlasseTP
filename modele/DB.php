@@ -17,6 +17,8 @@ class DB {
    const DUPLICATE_ENTRY = 1062;
    const ROW_IS_REFERENCED = 1451;
    const REFERENCED_ROW_NOT_FOUND = 1452;
+   // Auction defined exceptions, raised by triggers
+   
 
    /** Get a connection to the DB, in UTF-8 */
    public static function getConnection() {

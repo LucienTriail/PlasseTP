@@ -1,12 +1,13 @@
 <?php
-require_once "modele/sessionDao.php";
-// C'est le controleur qui gère les exceptions
+
+require_once "modele/SessionDao.php";
+//controleur gère les exceptions, jamais le modele
 try {
-  $sessions = SessionDao::getAll();
-  require_once "vue/sessionsV.php";
+    $sessions = SessionDao ::getAll();
+    require_once "vue/sessionsV.php";
+} catch (PDOException $e) {
+    $message = "Problème technique";
+    //$e=null;
+    require_once 'vue/messageV.php';
 }
-catch (PDOException $exc) {
-  $message = "Problème technique. Veuillez essayer ultérieurement";
-//  $exc = null;
-  require_once "vue/messageV.php";
-}
+?>

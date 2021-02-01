@@ -1,21 +1,33 @@
-<?php
-if (count($sessions) != 0) {
-  ?>
-  <p>Il y a <?= count($sessions) ?> sessions</p>
-  <ol>
-    <?php
-    foreach ($sessions as $session) {
-      ?>
-    <li><a href="projets.php?idSession=<?= $session["id_session_formation"]?>"><?= $session["nom"] ?></a>
-        (n° <?= $session["id_session_formation"]?>)</li>
-      <?php
-    }
-    ?>
-  </ol>
-  <?php
-} else {
-  ?>
-  <p>Aucune session trouvée</p>
-  <?php
-}
-?>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>1er pas</title>
+    </head>
+    <body>
+
+
+        <?php
+        if (count($projets) != 0) {
+            ?>
+            <ol>
+                <p>Il y a  <?= count($projets) ?> projets:</p>
+                <?php
+                foreach ($projets as $projet) {
+                    $url = "projet.php?idProjet=$projet[id_projet]";
+                    ?>
+
+                    <li><a href="<?= $url ?>"><?= $projet["titre"] ?></a></li>
+                    <?php
+                }
+                ?>
+            </ol>
+            <?php
+        } else {
+            ?>
+
+            <p>Aucun projet trouvé</p>
+            <?php
+        }
+        ?>
+    </body>
+</html>
