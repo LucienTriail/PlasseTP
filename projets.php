@@ -21,24 +21,17 @@ if ($idSession == null // pas de idSession dans l'url
     $erreur = "Session $idSession introuvable";
   }
 }*/
-require_once "modele/ProjetsDao.php";
+require_once "modele/ProjetDao.php";
 
 try{
     
-    $projets= ProjetsDao :: getProjets();  //ou getProjetsBySession?
+    $projets= ProjetDao :: getProjets();  
     require_once "vue/projetsV.php";
 }catch(PDOException $e){
     $message="Problème technique";
     require_once 'vue/messageV.php';
 }
 
-try{
-    $projets= ProjetsDao :: afficherProjet();  //ou getProjetsBySession?
-    require_once "vue/projetsV.php";
-}catch(PDOException $e){
-    $message="Problème technique";
-    require_once 'vue/messageV.php';
-}
 
 
 //TRAITEMENT DES ERREURS
