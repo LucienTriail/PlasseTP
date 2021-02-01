@@ -6,14 +6,16 @@ if (count($sessions) != 0) {
     <?php
     foreach ($sessions as $session) {
       ?>
-      <li><?= $session["nom"] ?> 
-        (# <?= $session["id_session_formation"]?>)</li>
+    <li><a href="projets.php?idSession=<?= $session["id_session_formation"]?>"><?= $session["nom"] ?></a>
+        (n° <?= $session["id_session_formation"]?>)</li>
       <?php
     }
     ?>
   </ol>
   <?php
 } else {
-  
+  ?>
+  <p>Aucune session trouvée</p>
+  <?php
 }
 ?>
