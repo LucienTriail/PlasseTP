@@ -24,7 +24,8 @@ if ($idSession == null // pas de idSession dans l'url
 require_once "modele/ProjetsDao.php";
 
 try{
-    $projets= ProjetsDao :: getAll();  //ou getProjetsBySession?
+    
+    $projets= ProjetsDao :: getProjets();  //ou getProjetsBySession?
     require_once "vue/projetsV.php";
 }catch(PDOException $e){
     $message="Problème technique";
@@ -39,6 +40,32 @@ try{
     require_once 'vue/messageV.php';
 }
 
+
+//TRAITEMENT DES ERREURS
+/*$erreurs=array();
+if($_SERVER["REQUEST_METHOD"]=="GET"){
+    //traitement en get
+    //affichage formulaire
+    require_once 'vue/nouveauMembreV.php';
+}
+
+    else{
+        //traitement en POST
+        //check paramètre
+        $email=filter_input(INPUT_POST,"email",FILTER_VALIDATE_EMAIL);
+        
+        if($email==null || $email==false){
+            $erreurs["email"]="Email invalide";
+            require_once 'vue/nouveauMembreV.php';
+        }
+        else {
+            //si ok, appeller le modele
+            require_once 'modele/MembreDao.php';
+            MembreDao::insert($email);
+            //rediriger vers index
+            header("Location:index.php");
+            
+        } */
 
 ?>
 
