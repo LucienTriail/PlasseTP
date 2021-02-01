@@ -15,7 +15,7 @@
                 foreach ($projets as $projet) {
                     ?>
 
-                    <li><a href="projets.php?id_session_formation=<?= $projet["id_session_formation"] ?>"<?= $projet["titre"] ?></a>, 
+                    <li><a href="projet.php?id_session_formation=<?= $projet["id_session_formation"] ?>"<?= $projet["titre"] ?></a>, 
                         sujet:
                         <?= $projet["sujet"] ?> 
                     </li>
