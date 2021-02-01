@@ -2,10 +2,10 @@
 
 class ProjetDao {
 
-    public static function getProjets() {
+    public static function getProjets($idProjet) {
         require_once 'DB.php';
         $db = DB::getConnection(); //connexion a la db
-        $sql = 'select * from projet';
+        $sql = 'select * from projet ';
         //compilation de la requete
         $stmt = $db->prepare($sql);
         $stmt->execute();
@@ -15,19 +15,28 @@ class ProjetDao {
 
     public static function getById($idProjet) {
         //on recupere le projet,codé en dur
-        $result = null;
+        /*$result = null;
         $result = array(
             "id_projet" => $idProjet,
             "titre" => "projet test",
             "sujet" => "sujet 1",
             "date_debut" => "01/01/2000",
             "date_limite" => "02/01/2020");
-        return $result;
+
+        return $result;*/
+        require_once 'DB.php';
+        $db = DB::getConnection(); //connexion a la db
+        $sql = 'select * from projet where id_projet=:idProjet';
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":idProjet", $idProjet);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public static function getEquipesByIdProjet($idProjet) {
         //on recupere les equipes du projet,codé en dur
         //un array contient l'array equipe,lui meme contenant l'array membres, chaque membre etant un array
+        $result = null;
         $result = array(
             array(
                 "id_equipe" => 1,
@@ -36,7 +45,6 @@ class ProjetDao {
                         "id_membre" => 1,
                         "nom" => "jean",
                         "prenom" => "paul"),
-                    
                     array(
                         "id_membre" => 2,
                         "nom" => "jeanne",
@@ -46,9 +54,6 @@ class ProjetDao {
         );
         return $result;
     }
-
-  
-    
 
     public static function creerProjet() {
         require_once 'DB.php';
