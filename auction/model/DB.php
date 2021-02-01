@@ -18,15 +18,19 @@ class DB {
    const ROW_IS_REFERENCED = 1451;
    const REFERENCED_ROW_NOT_FOUND = 1452;
    // Auction defined exceptions, raised by triggers
-   
+   const BID_BEFORE_ENTRY_DATE = 3000;
+   const BID_AFTER_DEADLINE = 3001;
+   const BID_BY_THE_SELLER = 3002;
+   const BID_TOO_SMALL = 3003;
+   const BID_GREATER_THAN_FOLLOWING_ONES = 3004;
 
    /** Get a connection to the DB, in UTF-8 */
    public static function getConnection() {
       // DB configuration
-      $db = "projets";
+      $db = "auction";
       $dsn = "mysql:dbname=$db;host=localhost;charset=utf8";
-      $user = "user_projets";
-      $password = "pwd_projets"; // root avec MAMP et XAMPP
+      $user = "user_auction";
+      $password = "pwd_auction"; // root avec MAMP et XAMPP
       // Get a DB connection with PDO library
       $bdd = new PDO($dsn, $user, $password);
       // Set communication in utf-8
